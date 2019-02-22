@@ -1,0 +1,21 @@
+import os
+# bring in the os commandset.
+work_dir = "C://Users//Suppe//OneDrive//Documents//Kerokey"
+os.chdir("C:/Users/Suppe/OneDrive/Documents/Kerokey")
+# change directory to where the files are located.
+for f in os.listdir():  # list the filenames as "f"
+    f2 = f.lower()  # make all lettersin the name lowercase.
+    file_name, File_ext = (os.path.splitext(f2))   # cut off the extension from file name
+    file_name = file_name.strip()[0:-12]  # clean up the end of the file.
+    i = -1  # creat the negitive interger
+    while i < 10:  # create list for cycleing through.
+        words = ['version', 'video', 'lyrics', 'karaoke', 'music', 'official',
+                 '(', ')', '-', '?', '[', ']', '_']  # word list
+        trash = words[i]  # declareing words by varibles.
+        i = i + 1  # Increaseing varable
+        while trash in file_name:  # searching for trash words.
+            file_name = file_name.replace(trash, "")  # replaceing words.
+    file_name = file_name.strip() + File_ext.strip()
+    #os.renames(f, file_name)
+    print(file_name.capitalize())
+print("All Done. Im tired!")
